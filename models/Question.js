@@ -37,7 +37,7 @@ static Find(id){
 //      question.content=result.content
       question.id=result.id;
       resolve(question);
-    }
+    })
   })
 }
 
