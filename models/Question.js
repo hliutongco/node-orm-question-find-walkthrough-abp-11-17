@@ -29,6 +29,18 @@ class Question{
     })
   }
 
+static Find(id){
+  const sql=`SELECT * FROM questions WHERE id = ? LIMIT 1`
+  return new Promise(function(resolve){
+    db.get(sql,[id],function(err,result){
+      const question=new Question()
+      question.content=result.content
+      question.id=result.id;
+      resolve(question);
+    }
+  })
+}
+
 }
 
 module.exports = Question;
